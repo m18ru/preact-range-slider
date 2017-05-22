@@ -1,8 +1,10 @@
 {
   "name": "preact-rage-slider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Preact component for input values with rage slider",
   "main": "es5/index.js",
+  "module": "./es5-esm/index.js",
+  "types": "./es2015/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:scripts-project": "tslint -c tslint-type-check.json -p tsconfig.json --type-check",
