@@ -1,0 +1,5 @@
+div.range-slider
+{
+	@import "mixin";
+	@include range-slider;
+}

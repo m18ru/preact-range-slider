@@ -1,0 +1,53 @@
+{
+  "name": "preact-rage-slider",
+  "version": "0.0.1",
+  "description": "Preact component for input values with rage slider",
+  "main": "es5/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:scripts-project": "tslint -c tslint-type-check.json -p tsconfig.json --type-check",
+    "lint:scripts-other": "tslint \"{*.js,demo/*.js,demo/src/**/*.{ts,tsx}\"",
+    "lint": "npm run lint:scripts-project && npm run lint:scripts-other",
+    "build": "tsc",
+    "build:es5": "tsc --target es5 --outDir ./es5-esm",
+    "build:umd": "rollup -c",
+    "build:all": "npm run build && npm run build:es5 && npm run build:umd && npm run build:styles",
+    "minify": "uglifyjs ./es5/index.js -c -m -o ./es5/preact-range-slider.min.js",
+    "prepublish": "npm run lint && npm run build:all && npm run minify",
+    "build:demo": "cd demo && tsc && rollup -c",
+    "build:styles": "dart-sass ./assets/index.scss > ./assets/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m18ru/preact-rage-slider.git"
+  },
+  "keywords": [
+    "preact",
+    "component",
+    "slider",
+    "range",
+    "range-slider"
+  ],
+  "author": "Andrey Avol Volynkin <code@m18.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m18ru/preact-rage-slider/issues"
+  },
+  "homepage": "https://github.com/m18ru/preact-rage-slider#readme",
+  "peerDependencies": {
+    "preact": "^8.1.0",
+    "tslib": "^1.7.0"
+  },
+  "devDependencies": {
+    "dart-sass": "^1.0.0-alpha.9",
+    "rollup": "^0.41.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "tslint": "^5.2.0",
+    "tslint-config-m18": "^1.2.0",
+    "typescript": "^2.3.2",
+    "uglify-js": "^3.0.4"
+  },
+  "dependencies": {
+    "classjoin": "^0.1.0"
+  }
+}

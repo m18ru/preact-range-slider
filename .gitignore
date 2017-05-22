@@ -35,3 +35,13 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Build files
+/es5/
+/es5-esm/
+/es2015/
+/assets/*.css
+
+# Demo build files
+/demo/es2015/
+/demo/scripts/

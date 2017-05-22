@@ -1,0 +1,26 @@
+@import "../assets/index.css";
+
+div.demo
+{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+div.demo > div.component
+{
+	width: 400px;
+	height: 400px;
+	padding: 50px;
+}
+
+div.demo > form
+{
+	width: 400px;
+}
+
+div.demo > form textarea
+{
+	display: block;
+	
+	height: 150px;
+}

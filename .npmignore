@@ -1,0 +1,9 @@
+.gitignore
+node_modules/
+*.log
+.editorconfig
+rollup.config.js
+tsconfig.json
+tslint.json
+tslint-type-check.json
+/demo/

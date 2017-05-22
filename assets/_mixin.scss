@@ -1,0 +1,293 @@
+@mixin range-slider( $prefix: "" )
+{
+	$clr-primary: #2DB7F5;
+	$clr-secondary: #E9E9E9;
+	$clr-disabled: #CCCCCC;
+	$clr-obscured: lighten($clr-primary, 20%);
+	$clr-text: #333333;
+	$clr-dot-bg: white;
+	$clr-handle-bg: white;
+	$clr-tooltip-fg: white;
+	$clr-tooltip-bg: #6C6C6C;
+	
+	$border-radius-base: 6px;
+	
+	position: relative;
+	z-index: 1;
+	
+	box-sizing: border-box;
+	width: 100%;
+	height: 14px;
+	padding: 5px 0;
+	
+	font-size: 12px;
+	
+	border-radius: $border-radius-base;
+	
+	*
+	{
+		// Remove tap highlight color for mobile safari
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+	
+	> div.#{$prefix}rail
+	{
+		position: absolute;
+		
+		width: 100%;
+		height: 4px;
+		
+		background-color: $clr-secondary;
+		
+		border-radius: $border-radius-base;
+	}
+	
+	> div.#{$prefix}track
+	{
+		position: absolute;
+		left: 0;
+		
+		height: 4px;
+		
+		background-color: $clr-obscured;
+	}
+	
+	> div.#{$prefix}handle
+	{
+		position: absolute;
+		
+		box-sizing: border-box;
+		width: 14px;
+		height: 14px;
+		margin-left: -7px;
+		margin-top: -5px;
+		
+		cursor: pointer;
+		cursor: -webkit-grab;
+		cursor: grab;
+		
+		background-color: $clr-handle-bg;
+		
+		border: solid 2px $clr-obscured;
+		border-radius: 50%;
+		
+		&:hover,
+		&:focus
+		{
+			outline: none;
+			box-shadow: 0 0 5px $clr-primary;
+		}
+		
+		&:active,
+		&.#{$prefix}dragging
+		{
+			cursor: -webkit-grabbing;
+			cursor: grabbing;
+			
+			border-color: $clr-primary;
+			box-shadow: 0 0 5px $clr-primary;
+		}
+		
+		> span.#{$prefix}tip
+		{
+			$arrow-half-width: 3px;
+			$arrow-height: 6px;
+			
+			position: absolute;
+			bottom: calc(100% + #{$arrow-height});
+			left: 50%;
+			z-index: 1;
+			
+			box-sizing: border-box;
+			min-width: 24px;
+			padding: 0 6px;
+			
+			line-height: 24px;
+			text-align: center;
+			white-space: nowrap;
+			
+			pointer-events: none;
+			
+			color: $clr-tooltip-fg;
+			background: $clr-tooltip-bg;
+			
+			border-radius: $border-radius-base;
+			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+			
+			transform: translateX(-50%) scale(0);
+			transform-origin: center calc(100% + #{$arrow-height});
+			
+			transition-property: transform;
+			transition-duration: 0.1s;
+			transition-delay: 0.1s;
+			transition-timing-function: ease-in;
+			
+			&::after
+			{
+				$clr-transparent: rgba($clr-tooltip-bg, 0);
+				
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				
+				width: 0;
+				height: 0;
+				margin-left: -$arrow-half-width;
+				
+				content: "";
+				
+				border-width: $arrow-height $arrow-half-width 0;
+				border-color: $clr-tooltip-bg $clr-transparent $clr-transparent;
+				border-style: solid;
+			}
+		}
+		
+		&:hover,
+		&:active,
+		&.#{$prefix}dragging
+		{
+			> span.#{$prefix}tip
+			{
+				transform: translateX(-50%) scale(1);
+				
+				transition-timing-function: ease-out;
+			}
+		}
+	}
+	
+	> div.#{$prefix}marks
+	{
+		position: absolute;
+		top: 18px;
+		left: 0;
+		
+		width: 100%;
+		
+		> span.#{$prefix}text
+		{
+			position: absolute;
+			
+			display: inline-block;
+			
+			text-align: center;
+			vertical-align: middle;
+			white-space: nowrap;
+			
+			cursor: default;
+			
+			color: lighten($clr-text, 30%);
+			
+			&.#{$prefix}active
+			{
+				color: $clr-text;
+			}
+		}
+	}
+	
+	> div.#{$prefix}steps
+	{
+		position: absolute;
+		
+		width: 100%;
+		height: 4px;
+		
+		> span.#{$prefix}dot
+		{
+			position: absolute;
+			bottom: -2px;
+			
+			box-sizing: border-box;
+			width: 8px;
+			height: 8px;
+			margin-left: -4px;
+			
+			cursor: pointer;
+			
+			background-color: $clr-dot-bg;
+			
+			border: 2px solid $clr-secondary;
+			border-radius: 50%;
+			
+			&.#{$prefix}active
+			{
+				border-color: $clr-obscured;
+			}
+		}
+	}
+	
+	&.#{$prefix}disabled
+	{
+		background-color: $clr-secondary;
+		
+		> div.#{$prefix}track
+		{
+			background-color: $clr-disabled;
+		}
+		
+		> div.#{$prefix}handle
+		{
+			cursor: not-allowed;
+			
+			border-color: $clr-disabled;
+			box-shadow: none;
+		}
+		
+		> div.#{$prefix}steps
+		{
+			> span.#{$prefix}dot
+			{
+				cursor: not-allowed;
+				
+				border-color: $clr-disabled;
+			}
+		}
+	}
+	
+	&.#{$prefix}vertical
+	{
+		width: 14px;
+		height: 100%;
+		padding: 0 5px;
+		
+		> div.#{$prefix}rail
+		{
+			width: 4px;
+			height: 100%;
+		}
+		
+		> div.#{$prefix}track
+		{
+			left: 5px;
+			bottom: 0;
+			
+			width: 4px;
+		}
+		
+		> div.#{$prefix}handle
+		{
+			margin-bottom: -7px;
+			margin-left: -5px;
+		}
+		
+		> div.#{$prefix}marks
+		{
+			top: 0;
+			left: 18px;
+			
+			height: 100%;
+		}
+		
+		> div.#{$prefix}steps
+		{
+			width: 4px;
+			height: 100%;
+			
+			> span.#{$prefix}dot
+			{
+				left: 2px;
+				
+				margin-bottom: -4px;
+			}
+		}
+	}
+}
