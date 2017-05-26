@@ -42,8 +42,10 @@
   },
   "devDependencies": {
     "dart-sass": "^1.0.0-alpha.9",
+    "preact": "^8.1.0",
     "rollup": "^0.41.6",
     "rollup-plugin-node-resolve": "^3.0.0",
+    "tslib": "^1.7.0",
     "tslint": "^5.2.0",
     "tslint-config-m18": "^1.2.0",
     "typescript": "^2.3.2",
