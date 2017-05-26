@@ -1,7 +1,7 @@
 {
-  "name": "preact-rage-slider",
-  "version": "0.0.2",
-  "description": "Preact component for input values with rage slider",
+  "name": "preact-range-slider",
+  "version": "0.0.3",
+  "description": "Preact component for input values with range slider",
   "main": "es5/index.js",
   "module": "./es5-esm/index.js",
   "types": "./es2015/index.d.ts",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m18ru/preact-rage-slider.git"
+    "url": "git+https://github.com/m18ru/preact-range-slider.git"
   },
   "keywords": [
     "preact",
@@ -33,9 +33,9 @@
   "author": "Andrey Avol Volynkin <code@m18.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/m18ru/preact-rage-slider/issues"
+    "url": "https://github.com/m18ru/preact-range-slider/issues"
   },
-  "homepage": "https://github.com/m18ru/preact-rage-slider#readme",
+  "homepage": "https://github.com/m18ru/preact-range-slider#readme",
   "peerDependencies": {
     "preact": "^8.1.0",
     "tslib": "^1.7.0"

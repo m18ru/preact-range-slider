@@ -1,6 +1,6 @@
-# preact-rage-slider
+# preact-range-slider
 
-Preact component for input values with rage slider
+Preact component for input values with range slider
 
 It’s currently in alpha stage, so…
 
