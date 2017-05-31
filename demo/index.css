@@ -22,5 +22,36 @@ div.demo > form textarea
 {
 	display: block;
 	
-	height: 150px;
+	height: 100px;
+}
+
+div.demo > form > ul
+{
+	padding: 0;
+	
+	list-style: none;
+}
+
+div.demo > form > ul > li
+{
+	display: block;
+	
+	margin: 0 0 1em;
+}
+
+div.demo > form label
+{
+	margin: 0 0.5em 0 0;
+}
+
+div.demo > form input + label
+{
+	padding: 0 0 0 0.5em;
+	margin: 0;
+}
+
+div.demo > form input,
+div.demo > form label
+{
+	vertical-align: middle;
 }
