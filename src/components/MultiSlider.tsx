@@ -582,7 +582,10 @@ class MultiSlider extends AbstractSlider<Partial<MultiSliderProps>, MultiSliderS
 		{
 			const pointsObject = {...marks};
 			
-			if ( step != null )
+			if (
+				( step != null )
+				&& ( step > 0 )
+			)
 			{
 				for ( let point = min; point <= max; point += step )
 				{

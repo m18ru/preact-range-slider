@@ -84,7 +84,7 @@ function calcPoints( marks: SliderMarks, dots: boolean,
 {
 	const points = Object.keys( marks ).map( Number );
 	
-	if ( dots )
+	if ( dots && ( step > 0 ) )
 	{
 		for ( let i = min; i <= max; i = i + step )
 		{

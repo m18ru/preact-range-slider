@@ -75,18 +75,6 @@ class Demo extends Component<DemoProps, DemoState>
 			);
 	}
 	
-	// private static convertValuesToText( values: number[] ): string
-	// {
-	// 	return values.join( ', ' );
-	// }
-	
-	// private static convertTextToValues( text: string ): number[]
-	// {
-	// 	return text.split( /\s*,\s*/ )
-	// 		.map( Number )
-	// 		.filter( ( value ) => !isNaN( value ) );
-	// }
-	
 	public constructor( props: DemoProps )
 	{
 		super( props );
@@ -177,14 +165,19 @@ class Demo extends Component<DemoProps, DemoState>
 							</label>
 						</li>
 						<li>
+							<input type="checkbox"
+								disabled
+								checked={state.step > 0}
+								title="Set step to “0” to disable."
+							/>
 							<label for="f-controls-step">
-								Slider step:
+								Slider step, can be disabled (set to zero or less) to make marks as steps:
 							</label>
 							<input type="number"
 								id="f-controls-step"
 								name="step"
 								step="0.1"
-								min="0.1"
+								min="0"
 								value={String( state.step )}
 							/>
 						</li>
@@ -210,18 +203,6 @@ class Demo extends Component<DemoProps, DemoState>
 								value={String( state.max )}
 							/>
 						</li>
-						{/*<li>
-							<label for="f-controls-count">
-								Count of handles:
-							</label>
-							<input type="number"
-								id="f-controls-count"
-								name="count"
-								step="1"
-								min="0"
-								value={String( state.count + 1 )}
-							/>
-						</li>*/}
 						<li>
 							<input type="checkbox"
 								id="f-controls-count"
@@ -308,7 +289,7 @@ class Demo extends Component<DemoProps, DemoState>
 				break;
 			
 			case 'step':
-				this.setState( {step: target.valueAsNumber || 1} );
+				this.setState( {step: target.valueAsNumber || 0} );
 				break;
 			
 			case 'min':
@@ -320,7 +301,6 @@ class Demo extends Component<DemoProps, DemoState>
 				break;
 			
 			case 'count':
-				// this.setState( {count: (target.valueAsNumber - 1) || 0} );
 				this.setState( {count: ( state.count < 1 ? 2 : 0 )} );
 				break;
 				

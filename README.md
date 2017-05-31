@@ -112,7 +112,7 @@ prefix).
 | ---- | ---- | ------- | ----------- |
 | `min` | `number` | `0` | The minimum value of the slider. |
 | `max` | `number` | `100` | The maximum value of the slider. |
-| `step` | `number` | `1` | Value to be added or subtracted on each step the slider makes. |
+| `step` | `number` | `1` | Value to be added or subtracted on each step the slider makes. Step can be set to zero or less to make `marks` as steps. |
 | `marks` | `{[key: number]: string | JSX.Element | Array<string | JSX.Element>}` | `{}` | Marks on the slider. The key determines the position, and the value determines what will show. |
 | `dots` | `boolean` | `false` | Show dots on slider (with step as interval)? |
 | `included` | `boolean` | `true` | As continuous value interval (otherwise, as independent values)? |

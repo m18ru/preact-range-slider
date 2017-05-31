@@ -80,7 +80,10 @@ function getClosestPoint(
 {
 	const points = Object.keys( marks ).map( Number );
 	
-	if ( step != null )
+	if (
+		( step != null )
+		&& ( step > 0 )
+	)
 	{
 		const closestStep = Math.round( (value - min) / step) * step + min;
 		points.push( closestStep );
@@ -108,7 +111,12 @@ function alignValue(
 	const closestPoint = getClosestPoint( value, props );
 	
 	return (
-		( step == null )
+		(
+			// If step is less than 1, value is taken from marks and should not
+			// be rounded.
+			( step == null )
+			|| ( step < 1 )
+		)
 		? closestPoint
 		: Number(
 			closestPoint.toFixed( getPrecision( step ) ),
