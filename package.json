@@ -16,7 +16,6 @@
     "build:all": "npm run build && npm run build:es5 && npm run build:umd && npm run build:styles",
     "minify": "uglifyjs ./es5/index.js -c -m -o ./es5/preact-range-slider.min.js",
     "prepublishOnly": "npm run lint && npm run build:all && npm run minify",
-    "postinstall": "npm run build:all && npm run build:demo",
     "build:demo": "cd demo && tsc && rollup -c",
     "build:styles": "dart-sass ./assets/index.scss > ./assets/index.css"
   },
