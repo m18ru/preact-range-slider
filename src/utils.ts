@@ -112,10 +112,10 @@ function alignValue(
 	
 	return (
 		(
-			// If step is less than 1, value is taken from marks and should not
-			// be rounded.
+			// If step is less or equal 0, value is taken from marks and should
+			// not be rounded.
 			( step == null )
-			|| ( step < 1 )
+			|| ( step <= 0 )
 		)
 		? closestPoint
 		: Number(
