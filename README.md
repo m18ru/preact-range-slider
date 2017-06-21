@@ -1,3 +1,7 @@
+[![NPM][npm]][npm-url]
+[![Dependencies][deps]][deps-url]
+[![DevDependencies][deps-dev]][deps-dev-url]
+
 # preact-range-slider
 
 Preact component for input values with range slider
@@ -145,6 +149,19 @@ prefix).
 | `onChange` | `( value: number[] ) => void` | `noop` | Triggered while the value of Slider changing. |
 | `onAfterChange` | `( value: number[] ) => void` | `noop` | Triggered after slider changes stop (on mouse up, etc). |
 
+## Change Log
+
+[View changelog](CHANGELOG.md).
+
 ## License
 
-[MIT](https://github.com/m18ru/preact-range-slider/blob/master/LICENSE).
+[MIT](LICENSE).
+
+[npm]: https://img.shields.io/npm/v/preact-range-slider.svg
+[npm-url]: https://npmjs.com/package/preact-range-slider
+
+[deps]: https://img.shields.io/david/m18ru/preact-range-slider.svg
+[deps-url]: https://david-dm.org/m18ru/preact-range-slider
+
+[deps-dev]: https://img.shields.io/david/dev/m18ru/preact-range-slider.svg
+[deps-dev-url]: https://david-dm.org/m18ru/preact-range-slider?type=dev
