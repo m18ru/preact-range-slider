@@ -1,6 +1,6 @@
 {
   "name": "preact-range-slider",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Preact component for input values with range slider",
   "main": "es5/index.js",
   "module": "./es5-esm/index.js",
