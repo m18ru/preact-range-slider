@@ -322,7 +322,7 @@ abstract class AbstractSlider<
 	 * Clamp current value to min-max interval on align to available values
 	 * using step and marks.
 	 */
-	protected abstract clampAlignValue<TProps>(
+	protected abstract clampAlignValue(
 		value: number,
 		nextProps?: Partial<TProps>,
 	): number;

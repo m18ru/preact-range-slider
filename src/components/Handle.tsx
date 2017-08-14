@@ -41,6 +41,9 @@ export interface HandleState
  */
 class Handle extends Component<HandleProps, HandleState>
 {
+	/**
+	 * Reference to element in DOM.
+	 */
 	private elementRef: HTMLElement;
 	
 	/**
