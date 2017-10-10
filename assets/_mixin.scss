@@ -1,14 +1,14 @@
 @mixin range-slider( $prefix: "" )
 {
-	$clr-primary: #2DB7F5;
-	$clr-secondary: #E9E9E9;
-	$clr-disabled: #CCCCCC;
-	$clr-obscured: lighten($clr-primary, 20%);
-	$clr-text: #333333;
-	$clr-dot-bg: white;
-	$clr-handle-bg: white;
-	$clr-tooltip-fg: white;
-	$clr-tooltip-bg: #6C6C6C;
+	$clr-primary: #2DB7F5 !default;
+	$clr-secondary: #E9E9E9 !default;
+	$clr-disabled: #CCCCCC !default;
+	$clr-obscured: lighten($clr-primary, 20%) !default;
+	$clr-text: #333333 !default;
+	$clr-dot-bg: white !default;
+	$clr-handle-bg: white !default;
+	$clr-tooltip-fg: white !default;
+	$clr-tooltip-bg: #6C6C6C !default;
 	
 	$border-radius-base: 6px;
 	
