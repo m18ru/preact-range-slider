@@ -1,14 +1,14 @@
 @mixin range-slider( $prefix: "" )
 {
-	$clr-primary: #2DB7F5;
-	$clr-secondary: #E9E9E9;
-	$clr-disabled: #CCCCCC;
-	$clr-obscured: lighten($clr-primary, 20%);
-	$clr-text: #333333;
-	$clr-dot-bg: white;
-	$clr-handle-bg: white;
-	$clr-tooltip-fg: white;
-	$clr-tooltip-bg: #6C6C6C;
+	$range-slider-clr-primary: #2DB7F5 !default;
+	$range-slider-clr-secondary: #E9E9E9 !default;
+	$range-slider-clr-disabled: #CCCCCC !default;
+	$range-slider-clr-obscured: lighten($range-slider-clr-primary, 20%) !default;
+	$range-slider-clr-text: #333333 !default;
+	$range-slider-clr-dot-bg: white !default;
+	$range-slider-clr-handle-bg: white !default;
+	$range-slider-clr-tooltip-fg: white !default;
+	$range-slider-clr-tooltip-bg: #6C6C6C !default;
 	
 	$border-radius-base: 6px;
 	
@@ -37,7 +37,7 @@
 		width: 100%;
 		height: 4px;
 		
-		background-color: $clr-secondary;
+		background-color: $range-slider-clr-secondary;
 		
 		border-radius: $border-radius-base;
 	}
@@ -49,7 +49,7 @@
 		
 		height: 4px;
 		
-		background-color: $clr-obscured;
+		background-color: $range-slider-clr-obscured;
 	}
 	
 	> div.#{$prefix}handle
@@ -66,16 +66,16 @@
 		cursor: -webkit-grab;
 		cursor: grab;
 		
-		background-color: $clr-handle-bg;
+		background-color: $range-slider-clr-handle-bg;
 		
-		border: solid 2px $clr-obscured;
+		border: solid 2px $range-slider-clr-obscured;
 		border-radius: 50%;
 		
 		&:hover,
 		&:focus
 		{
 			outline: none;
-			box-shadow: 0 0 5px $clr-primary;
+			box-shadow: 0 0 5px $range-slider-clr-primary;
 		}
 		
 		&:active,
@@ -84,8 +84,8 @@
 			cursor: -webkit-grabbing;
 			cursor: grabbing;
 			
-			border-color: $clr-primary;
-			box-shadow: 0 0 5px $clr-primary;
+			border-color: $range-slider-clr-primary;
+			box-shadow: 0 0 5px $range-slider-clr-primary;
 		}
 		
 		> span.#{$prefix}tip
@@ -108,8 +108,8 @@
 			
 			pointer-events: none;
 			
-			color: $clr-tooltip-fg;
-			background: $clr-tooltip-bg;
+			color: $range-slider-clr-tooltip-fg;
+			background: $range-slider-clr-tooltip-bg;
 			
 			border-radius: $border-radius-base;
 			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -124,7 +124,7 @@
 			
 			&::after
 			{
-				$clr-transparent: rgba($clr-tooltip-bg, 0);
+				$clr-transparent: rgba($range-slider-clr-tooltip-bg, 0);
 				
 				position: absolute;
 				top: 100%;
@@ -137,7 +137,7 @@
 				content: "";
 				
 				border-width: $arrow-height $arrow-half-width 0;
-				border-color: $clr-tooltip-bg $clr-transparent $clr-transparent;
+				border-color: $range-slider-clr-tooltip-bg $clr-transparent $clr-transparent;
 				border-style: solid;
 			}
 		}
@@ -175,11 +175,11 @@
 			
 			cursor: default;
 			
-			color: lighten($clr-text, 30%);
+			color: lighten($range-slider-clr-text, 30%);
 			
 			&.#{$prefix}active
 			{
-				color: $clr-text;
+				color: $range-slider-clr-text;
 			}
 		}
 	}
@@ -203,32 +203,32 @@
 			
 			cursor: pointer;
 			
-			background-color: $clr-dot-bg;
+			background-color: $range-slider-clr-dot-bg;
 			
-			border: 2px solid $clr-secondary;
+			border: 2px solid $range-slider-clr-secondary;
 			border-radius: 50%;
 			
 			&.#{$prefix}active
 			{
-				border-color: $clr-obscured;
+				border-color: $range-slider-clr-obscured;
 			}
 		}
 	}
 	
 	&.#{$prefix}disabled
 	{
-		background-color: $clr-secondary;
+		background-color: $range-slider-clr-secondary;
 		
 		> div.#{$prefix}track
 		{
-			background-color: $clr-disabled;
+			background-color: $range-slider-clr-disabled;
 		}
 		
 		> div.#{$prefix}handle
 		{
 			cursor: not-allowed;
 			
-			border-color: $clr-disabled;
+			border-color: $range-slider-clr-disabled;
 			box-shadow: none;
 		}
 		
@@ -238,7 +238,7 @@
 			{
 				cursor: not-allowed;
 				
-				border-color: $clr-disabled;
+				border-color: $range-slider-clr-disabled;
 			}
 		}
 	}
