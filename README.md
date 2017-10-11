@@ -108,6 +108,27 @@ Or you can use compiled CSS file `preact-range-slider/assets/index.css` with
 default parameters (`div.range-slider` element, internal classes without
 prefix).
 
+You can override colors by creating variables with these names:
+
+```
+$range-slider-clr-primary
+$range-slider-clr-secondary
+$range-slider-clr-disabled
+$range-slider-clr-obscured
+$range-slider-clr-text
+$range-slider-clr-dot-bg
+$range-slider-clr-handle-bg
+$range-slider-clr-tooltip-fg
+$range-slider-clr-tooltip-bg
+```
+
+like:
+
+```scss
+$range-slider-clr-primary: $my-theme-primary-color;
+@import "preact-range-slider/assets/index.scss";
+```
+
 ## API
 
 ### Common properties
